@@ -1,5 +1,6 @@
 import '../styles.js/App.css';
 import AdminPage from './Admin/AdminPage';
+import AddMovieForm from './Admin/AddMovieForm';
 import {
   Routes,
   Route,
@@ -11,6 +12,7 @@ const App = () => {
     <>
       <Routes>
         <Route path="/admin" element={<AdminPage />} />
+        <Route path="/addMovie" element={<AddMovieForm />} />
       </Routes>
     </>
   );
