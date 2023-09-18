@@ -13,6 +13,7 @@ const App = () => {
   return (
     <>
       <Routes>
+        <Route path="/" element={<AdminPage />} />
         <Route path="/admin" element={<AdminPage />} />
         <Route path="/addMovie" element={<AddMovieForm />} />
         <Route path="/addShareholder" element={<AddShareholderForm />} />
