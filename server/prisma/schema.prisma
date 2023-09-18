@@ -29,7 +29,7 @@ model Shareholder {
 
 model Transfer {
   id            Int         @id @default(autoincrement())
-  amount        Decimal
+  amount        Decimal     @db.Decimal   
   description   String
   movie         Movie       @relation(fields: [movieId], references: [id])
   movieId       Int

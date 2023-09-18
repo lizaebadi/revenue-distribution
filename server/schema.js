@@ -21,7 +21,7 @@ const typeDefs = gql`
 
   type Transfer {
     id: Int
-    amount: Int
+    amount: Decimal
     description: String
     movie: Movie
   }
