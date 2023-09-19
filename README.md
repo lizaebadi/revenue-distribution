@@ -32,7 +32,7 @@ npm install
 ```
 4. Set up the database by creating a PostgreSQL database and updating the database URL in the `.env` files:
 
-- Update the `DATABASE_URL` and `TEST_DATABASE_URL` variables in `backend/.env` file with your PostgreSQL database connection URL.
+- Update the `DATABASE_URL` variable in `server/.env` file with your PostgreSQL database connection URL.
 
 5. Apply database migrations and seed data by running the following commands in the `backend` directory:
 
