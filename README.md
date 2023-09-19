@@ -44,13 +44,13 @@ npx prisma db seed
 6. Start the backend server:
 
 ```
+cd server
 node index.js
 ```
 
 7. In a separate terminal, start the frontend development server:
 
 ```
-cd..
 npm start
 ```
 
