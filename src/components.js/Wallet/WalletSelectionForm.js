@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { useQuery, gql } from '@apollo/client';
+import '../../styles.js/Wallet.css'
+
 
 const GET_SHAREHOLDERS = gql`
   query GetShareholders {
@@ -43,8 +45,8 @@ const WalletSelectionForm = () => {
   }
 
   return (
-    <div>
-      <h1>Wallet</h1>
+    <div className="wallet-container" >
+      <h1 className="wallet-title">Wallet</h1>
       {data.shareholders.length === 0 ? (
         <>
           <p>No shareholders available</p>

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useQuery, useMutation, gql } from '@apollo/client';
 import { useNavigate } from 'react-router-dom';
-import '../../styles.js/AddMovieForm.css';
+import '../../styles.js/AddForm.css';
 
 const CREATE_SHAREHOLDER_MUTATION = gql`
   mutation CreateShareholder(
@@ -69,7 +69,7 @@ const AddShareholderForm = () => {
   };
 
   return (
-    <div className="new-shareholder-container">
+    <div className="add-container">
       <h3>Add a New Shareholder</h3>
       <form onSubmit={handleAddShareholder}>
         <div className="form-group">

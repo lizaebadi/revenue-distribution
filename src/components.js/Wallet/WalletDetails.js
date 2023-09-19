@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { useQuery, gql } from "@apollo/client";
+import '../../styles.js/Wallet.css'
 
 const GET_WALLET_DATA = gql`
   query GetWalletData($shareholderID: Int!) {

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useQuery,useMutation, gql } from '@apollo/client';
 import { useNavigate } from 'react-router-dom';
 import Decimal from 'decimal.js/decimal';
+import '../../styles.js/AddForm.css';
 
 const CREATE_TRANSFER_MUTATION = gql`
   mutation CreateTransfer(
@@ -88,7 +89,7 @@ const AddTransferForm = () => {
   };
 
   return (
-    <div className="new-transfer-container">
+    <div className="add-container">
       <h3>Add a New Transfer</h3>
       <form data-cy="transfer-form" onSubmit={handleAddTransfer}>
         <div className="form-group">

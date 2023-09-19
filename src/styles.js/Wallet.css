@@ -1,0 +1,89 @@
+.wallet-container {
+    text-align: center;
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.1); 
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+  }
+  
+  .wallet-title {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    color: #ccc;
+  }
+  
+  .wallet-details {
+    text-align: left;
+    margin-top: 20px;
+  }
+  
+  .wallet-details p {
+    margin: 10px 0;
+  }
+  
+  .wallet-details h2 {
+    font-size: 1.2rem;
+    margin-top: 20px;
+    color: #385170;
+  }
+  
+  .wallet-details a {
+    text-decoration: none;
+    color: #9fd3c7;
+  }
+  
+  .wallet-details a:hover {
+    color: #ececec;
+  }
+  
+  .wallet-selection {
+    text-align: center;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.1);
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+  }
+  
+  .wallet-selection h1 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    color: #ccc;
+  }
+  
+  .wallet-selection form {
+    text-align: center;
+  }
+  
+  .wallet-selection label {
+    font-size: 1rem;
+    color: #ccc;
+  }
+  
+  .wallet-selection select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    font-size: 1rem;
+    margin-top: 10px;
+  }
+  
+  .wallet-selection button[type="submit"] {
+    background-color: #ececec;
+    color: #385170;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 3px;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+  
+  .wallet-selection button[type="submit"]:hover {
+    background-color: #9fd3c7;
+  }
+  

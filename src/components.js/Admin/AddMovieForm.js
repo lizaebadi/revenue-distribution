@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useMutation, gql } from '@apollo/client';
 import { useNavigate } from 'react-router-dom';
-import '../../styles.js/AddMovieForm.css';
+import '../../styles.js/AddForm.css';
 
 const CREATE_MOVIE_MUTATION = gql`
   mutation CreateMovie(
@@ -38,7 +38,7 @@ const AddMovieForm = () => {
   };
 
   return (
-    <div className="new-movie-container">
+    <div className="add-container">
       <h3>Add a New Movie</h3>
       <form
         onSubmit={handleAddMovie}
