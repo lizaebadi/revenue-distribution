@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { useQuery, gql } from "@apollo/client";
-import '../../styles.js/Wallet.css'
+import '../../styles/WalletDetails.css'
 
 const GET_WALLET_DATA = gql`
   query GetWalletData($shareholderID: Int!) {
@@ -58,7 +58,6 @@ const WalletDetails = () => {
 
   return (
     <div data-cy="wallet-container" className="wallet-container">
-      <h1 id="wallet-title">Wallet</h1>
       <h2>Shareholder Details</h2>
       <p>
         Name: {shareholder.firstName} {shareholder.lastName}
@@ -70,7 +69,7 @@ const WalletDetails = () => {
       <h2>Transfers</h2>
       {sortedTransfers.map((transfer) => (
         <p key={transfer.transfer.id}>
-          Amount: €{transfer.transfer.amount} - Description:{" "}
+          Amount: €{transfer.transfer.amount} Description:{" "}
           {transfer.transfer.description}
         </p>
       ))}

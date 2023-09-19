@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useQuery, useMutation, gql } from '@apollo/client';
 import { useNavigate } from 'react-router-dom';
-import '../../styles.js/AddForm.css';
+import '../../styles/AddForm.css';
 
 const CREATE_SHAREHOLDER_MUTATION = gql`
   mutation CreateShareholder(

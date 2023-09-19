@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useQuery,useMutation, gql } from '@apollo/client';
 import { useNavigate } from 'react-router-dom';
 import Decimal from 'decimal.js/decimal';
-import '../../styles.js/AddForm.css';
+import '../../styles/AddForm.css';
 
 const CREATE_TRANSFER_MUTATION = gql`
   mutation CreateTransfer(

@@ -1,4 +1,4 @@
-import '../styles.js/App.css';
+import '../styles/App.css';
 import AdminPage from './Admin/AdminPage';
 import WalletSelectionForm from './Wallet/WalletSelectionForm';
 import WalletDetails from './Wallet/WalletDetails';

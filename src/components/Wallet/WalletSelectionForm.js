@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { useQuery, gql } from '@apollo/client';
-import '../../styles.js/Wallet.css'
+import '../../styles/WalletSelectionForm.css'
 
 
 const GET_SHAREHOLDERS = gql`
@@ -55,7 +55,7 @@ const WalletSelectionForm = () => {
     ) : (
       <form onSubmit={handleSubmit}>
         <label>
-          View Shareholder Wallet:
+          <p>View Shareholder Wallet:</p>
           <select value={selectedID} onChange={handleSelect}>
             {data.shareholders.map((shareholder) => (
               <option key={shareholder.id} value={shareholder.id}>

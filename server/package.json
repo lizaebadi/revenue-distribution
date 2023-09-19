@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
+    "test:setup": "node test-db.js && jest",
     "test:coverage": "jest --coverage"
   },
   "keywords": [],
@@ -19,6 +20,7 @@
   },
   "devDependencies": {
     "@jest/globals": "^29.7.0",
+    "dotenv": "^16.3.1",
     "jest": "^29.7.0",
     "supertest": "^6.3.3"
   }
