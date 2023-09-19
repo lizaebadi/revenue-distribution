@@ -1,5 +1,6 @@
 const { PrismaClient } = require("@prisma/client");
 const prisma = new PrismaClient();
+const { Decimal } = require("decimal.js");
 
 const resolvers = {
   Query: {
@@ -11,7 +12,7 @@ const resolvers = {
         },
       });
       // All transfers associated with the shareholder
-      const transfers = await prisma.transfer.findMany({
+      const allTransfers = await prisma.transfer.findMany({
         where: {
           movie: {
             shareholders: {
@@ -29,20 +30,48 @@ const resolvers = {
           },
         },
       });
-      // Balance calculation using the movie data included above 
-      let balance = 0;
-      transfers.forEach((transfer) => {
+
+      const transfersPerShareholder = allTransfers.map((transfer) => {
         const movie = transfer.movie;
         const numberOfShareholders = movie.shareholders.length;
-        const amountPerShareholder = transfer.amount / numberOfShareholders;
-        balance += amountPerShareholder;
+        const transferAmount = new Decimal(transfer.amount);
+        const baseAmount = transferAmount.dividedBy(numberOfShareholders);
+    
+        // Distribute the remainder among shareholders
+        const remainder = transferAmount.modulo(numberOfShareholders);
+        const allShareholderAmounts = Array(numberOfShareholders)
+          .fill(baseAmount)
+          .map((amount, index) =>
+            index < remainder ? amount.plus(0.01) : amount
+          );
+        // Array of amounts per shareholder 
+        const amountPerShareholder = allShareholderAmounts.map((amount) =>
+          amount.toDecimalPlaces(2).toString()
+        );
+    
+        return {
+          transfer,
+          amountPerShareholder,
+        };
       });
-
+      // Calculates the balance for the shareholder
+      let balance = new Decimal(0);
+      transfersPerShareholder.forEach((transfer) => {
+        const shareholderIndex = transfer.transfer.movie.shareholders.findIndex(
+          (sh) => sh.id === shareholderID
+        );
+        const amount = new Decimal(transfer.amountPerShareholder[shareholderIndex]);
+        balance = balance.plus(amount);
+      });
+    
+      balance = balance.toDecimalPlaces(2);
+      
       return {
         shareholder,
         balance,
-        transfers,
+        transfers: transfersPerShareholder,
       };
+            
     },
 
     movies: async () => {

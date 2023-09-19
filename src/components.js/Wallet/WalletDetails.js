@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
-import { useParams, Link } from 'react-router-dom';
-import { useQuery, gql } from '@apollo/client';
+import React, { useEffect, useState } from "react";
+import { useParams, Link } from "react-router-dom";
+import { useQuery, gql } from "@apollo/client";
 
 const GET_WALLET_DATA = gql`
   query GetWalletData($shareholderID: Int!) {
@@ -14,9 +14,12 @@ const GET_WALLET_DATA = gql`
       }
       balance
       transfers {
-        id
-        amount
-        description
+        transfer {
+          id
+          amount
+          description
+        }
+        amountPerShareholder
       }
     }
   }
@@ -56,17 +59,20 @@ const WalletDetails = () => {
     <div data-cy="wallet-container" className="wallet-container">
       <h1 id="wallet-title">Wallet</h1>
       <h2>Shareholder Details</h2>
-      <p>Name: {shareholder.firstName} {shareholder.lastName}</p>
+      <p>
+        Name: {shareholder.firstName} {shareholder.lastName}
+      </p>
       <p>Address: {shareholder.address}</p>
       <p>IBAN: {shareholder.iban}</p>
       <h2>Current Balance</h2>
       <p>Balance: €{balance} </p>
       <h2>Transfers</h2>
-          {sortedTransfers.map((transfer) => (
-            <p key={transfer.id}>
-              Amount: €{transfer.amount} - Description: {transfer.description} - {transfer.id}
-            </p>
-          ))}
+      {sortedTransfers.map((transfer) => (
+        <p key={transfer.transfer.id}>
+          Amount: €{transfer.transfer.amount} - Description:{" "}
+          {transfer.transfer.description}
+        </p>
+      ))}
       <Link to="/wallet">Back to Wallet Selection</Link>
     </div>
   );

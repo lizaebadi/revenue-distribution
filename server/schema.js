@@ -47,8 +47,13 @@ const typeDefs = gql`
   type Wallet {
     shareholder: Shareholder
     balance: Decimal
-    transfers: [Transfer]
+    transfers: [TransferPerShareholder] 
   }
+  
+  type TransferPerShareholder {
+    transfer: Transfer
+    amountPerShareholder: Decimal
+  }  
 
   type Query {
     wallet(shareholderID: Int!): Wallet
