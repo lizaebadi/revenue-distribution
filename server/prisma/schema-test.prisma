@@ -1,0 +1,33 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("TEST_DATABASE_URL")
+}
+
+model Movie {
+  id           Int           @id @default(autoincrement())
+  title        String
+  shareholders Shareholder[]
+  transfers    Transfer[]
+}
+
+model Shareholder {
+  id        Int        @id @default(autoincrement())
+  firstName String
+  lastName  String
+  address   String
+  iban      String     @unique
+  movie     Movie      @relation(fields: [movieId], references: [id])
+  movieId   Int
+}
+
+model Transfer {
+  id            Int         @id @default(autoincrement())
+  amount        Decimal     @db.Decimal   
+  description   String
+  movie         Movie       @relation(fields: [movieId], references: [id])
+  movieId       Int
+}
